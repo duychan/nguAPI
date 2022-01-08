@@ -1,0 +1,22 @@
+- switch DB : use `name DB` 
+ex : use node
+- switch collection : `nameDB`.`nameCol`
+ex : node.user
+- create collection : db.createCollection("nameCol")
+ex : db.createCollection("cre")
+- show all collection : show collections
+- limited document when create: db.createCollection(`nameCol`,{ capped: true, max: `number limite`, size: `limite data`})
+ex : db.createCollection("userCap",{ capped: true, max: 3, size: 1000})
+- insert a document: db.`colName`.insert({`Object`})
+ex : db.user.insert({
+name: "Duy",
+age: 20}) 
+- select :
+ + in , nin , eq , gt , gte , lte , ne , lt  
+ + {"marks.english":{$in: [8,8.5]}}
+- update:
+ + db.`nameCol`.updateOne({`docName`}),{$set:{`properties:`xxx``}})
+ + push an element to array in object :
+    > db.`nameCol`.updateOne({`docName`},{$push:{`properties`:`...`}})
+ + push an array to object properties:
+    > db.`nameCol`.updateOne({`docName`},{$push:{`properties`:{$each:`array`}}})
